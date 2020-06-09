@@ -1,0 +1,13 @@
+<div class="lightbox">
+  <div class="overlay" (click)="close()"></div>
+  <ul class="list" [ngClass]="{'is-animated': isAnimated}" [ngStyle]="{
+        'transform': 'translate3d(-' + translate + 'px, 0, 0)'
+      }">
+    <li *ngFor="let image of images; let i = index"
+      [ngStyle]="{'width': entryWidth + 'px', 'height': entryHeight + 'px'}" class="dialog">
+      <button (click)="onClickDialog(i)" [disabled]="lightboxIndex == i">
+        <app-lightbox-entry [image]="image"></app-lightbox-entry>
+      </button>
+    </li>
+  </ul>
+</div>

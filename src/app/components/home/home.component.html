@@ -15,5 +15,6 @@
 </div>
 
 <div class="lightbox-wrapper" *ngIf="lightboxIndex != null" [@lightboxAnimation]>
-  <app-lightbox [lightboxIndex]="lightboxIndex"></app-lightbox>
+  <app-lightbox *ngIf="!isMobile" [lightboxIndex]="lightboxIndex"></app-lightbox>
+  <app-lightbox-mobile *ngIf="isMobile" [lightboxIndex]="lightboxIndex"></app-lightbox-mobile>
 </div>

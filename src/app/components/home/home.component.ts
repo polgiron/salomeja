@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   tmpTiles: Tile[] = [];
   hoverLogo: boolean;
   removeZindex: boolean;
+  isMobile: boolean;
 
   constructor(
     private homeService: HomeService,
@@ -39,6 +40,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isMobile = window.innerWidth <= 767;
+
     this.buildTiles();
 
     this.lightboxService.lightboxChannel()
