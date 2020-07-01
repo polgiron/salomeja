@@ -25,6 +25,7 @@ export class LightboxComponent implements OnInit, OnDestroy {
   translate: number;
   isAnimated: boolean = false;
   openInfos: boolean = false;
+  windowHeight: number;
 
   constructor(
     private homeService: HomeService,
@@ -34,6 +35,7 @@ export class LightboxComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.windowHeight = window.innerHeight;
     this.images = this.homeService.images;
     this._keydownListener = this.onKeydown.bind(this);
     window.addEventListener('keydown', this._keydownListener);

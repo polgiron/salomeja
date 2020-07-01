@@ -1,4 +1,4 @@
-<div class="lightbox">
+<div class="lightbox" [ngStyle]="{height: windowHeight + 'px'}">
   <div class="overlay" (click)="close()"></div>
   <div class="content" (swiperight)="swipeRight()" (swipeleft)="swipeLeft()">
     <div class="left hide-mobile">
