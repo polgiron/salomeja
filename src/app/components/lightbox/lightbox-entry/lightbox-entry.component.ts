@@ -21,7 +21,7 @@ export class LightboxEntryComponent implements OnInit {
 
   ngOnInit() { }
 
-  async onDeferLoad() {
+  onDeferLoad() {
     this.isInViewport = true;
     this.ref.markForCheck();
   }

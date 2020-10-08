@@ -1,4 +1,4 @@
-<div class="tile" [ngClass]="{'is-letter': data && data.letter}">
+<div class="tile" [ngClass]="{'is-letter': data && data.letter}" (deferLoad)="onDeferLoad()">
   <button *ngIf="data && data.letter" class="content" (click)="openInfos()"
     [inlineSVG]="'/assets/images/letters/regular/' + data.letter + '_regular.svg'"
     (mouseenter)="onMouseEnterLetterTile()" (mouseleave)="onMouseLeaveLetterTile()"></button>
@@ -6,7 +6,7 @@
     <button *ngFor="let image of data.images" class="button-image"
       [ngClass]="{'is-hidden': hoverProjectId && hoverProjectId != image.projectId}" (click)="openLightbox(image)"
       (mouseenter)="onMouseEnterProjectTile(image)" (mouseleave)="onMouseLeaveProjectTile()">
-      <img draggable="false" [src]="image.thumbUrl" alt="" class="fade" (load)="onLoad()"
+      <img *ngIf="isInViewport" draggable="false" [src]="image.thumbUrl" alt="" class="fade" (load)="onLoad()"
         [ngClass]="{'is-loaded': isLoaded}">
     </button>
   </div>

@@ -14,7 +14,8 @@ export class TileComponent implements OnInit {
   @Input() data: Tile;
   @Input() hoverProjectId: number;
   @Input() projectTitleLetter: string;
-  isLoaded: boolean;
+  isLoaded: boolean = false;
+  isInViewport: boolean = false;
 
   constructor(
     private lightboxService: LightboxService,
@@ -51,6 +52,11 @@ export class TileComponent implements OnInit {
 
   onLoad() {
     this.isLoaded = true;
+    this.ref.markForCheck();
+  }
+
+  onDeferLoad() {
+    this.isInViewport = true;
     this.ref.markForCheck();
   }
 }
